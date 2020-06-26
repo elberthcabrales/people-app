@@ -1,0 +1,48 @@
+version: '3'
+
+services:
+  people:
+   image: people
+   ports:
+     - 3002
+   environment:
+     - PORTS=3002
+     - KEY="ADD YOUR KEY HERE"
+   deploy:
+     replicas: 6
+     update_config:
+       parallelism: 5
+       delay: 10s
+     restart_policy:
+       condition: on-failure
+       max_attempts: 3
+       window: 120s
+   networks:
+     - web
+  
+  redis:
+    image: redis
+    ports:
+      - 6379:6379
+    networks:
+      - web
+
+  proxy:
+    image: dockercloud/haproxy
+    depends_on:
+      - awesome
+    environment:
+      - BALANCE=leastconn
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      - 80:80
+    networks:
+      - web
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+
+networks:
+  web:
+    driver: overlay
