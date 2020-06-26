@@ -1,8 +1,7 @@
 ## Look README inside folders client-react and service
 
 
-
-## run as single
+## run as single service and client
 Start your redis services at port 6379
 example
     - docker run --name redis -d -p 6379:6379 redis
