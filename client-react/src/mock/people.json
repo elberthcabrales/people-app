@@ -1,0 +1,28 @@
+{
+    "peopleMock": [
+        {
+            "id": 249340741,
+            "name": "Steven Pease",
+            "email": "sakatius@gmail.com",
+            "job": "Software Engineer"
+        },
+        {
+            "id": 251436152,
+            "name": "Possibly Duplicate",
+            "email": "sakatiuCss@gmail.com",
+            "job": "My Job"
+        },
+        {
+            "id": 251439153,
+            "name": "SomethingNewHere Here1",
+            "email": "last@me.com",
+            "job": "Baby Yoda Keeper"
+        },
+        {
+            "id": 249340744,
+            "name": "Steven Pease",
+            "email": "sakatiuss@gmail.com",
+            "job": "Software Engineer"
+        }
+    ]
+}
