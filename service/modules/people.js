@@ -1,7 +1,8 @@
 module.exports = ({ axios, redis}) => ({
     get: async (req, res) => { 
-        const {get, set} = redis;        
-        const value = await get("salesloftApi")
+        const {get, set} = redis;
+        const key = process.env.DATA_VAR || "salesloftApiV2"        
+        const value = await get(key)
         if(value){
             return res.status(200).send(value)
         }
@@ -18,7 +19,7 @@ module.exports = ({ axios, redis}) => ({
                     job: title
                 }
             })
-            await set("salesloftApi", data.data)
+            await set(key, data.data)
             return res.status(200).send(data.data)
         }
         res.status(400)
