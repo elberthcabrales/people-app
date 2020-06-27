@@ -3,7 +3,7 @@ require('dotenv').config();
 const app = express();
 const services = require('./services');
 const people = require('./modules/people');
-const {init} = services.redis;
+const {init} = services.redis.instance;
 init({options:{}});
 app.use(express.json());
 

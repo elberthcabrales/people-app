@@ -6,6 +6,7 @@ describe('People endpoint', ()=>{
         status: jest.fn().mockReturnThis(),
         send: jest.fn()
     }
+   
     it('Sould get all people from salesloft api', async ()=>{
         const mockPeople = [{
             id:1,
@@ -17,12 +18,14 @@ describe('People endpoint', ()=>{
         const axios = {
             get: jest.fn().mockResolvedValue({ data: {data: mockPeople} })
         }
-
         const redis = {
-            get: jest.fn().mockResolvedValue(null),
-            set: jest.fn()
+            instance:{
+                get: jest.fn().mockResolvedValue(mockPeople),
+                set: jest.fn()
+            },
+            key: 'salesloftApi',
+            feature_redis: true
         }
-
         await people({axios, redis}).get(req, res);
         expect(res.status).toHaveBeenCalledWith(200);
         expect(res.send).toHaveBeenCalledWith(mockPeople)
@@ -33,8 +36,12 @@ describe('People endpoint', ()=>{
             get: jest.fn().mockResolvedValue({ data: null })
         }
         const redis = {
-            get: jest.fn().mockResolvedValue(null),
-            set: jest.fn()
+            instance:{
+                get: jest.fn().mockResolvedValue(null),
+                set: jest.fn()
+            },
+            key: 'salesloftApi',
+            feature_redis: false
         }
         await people({axios, redis}).get(req, res);
         expect(res.status).toHaveBeenCalledWith(400);
