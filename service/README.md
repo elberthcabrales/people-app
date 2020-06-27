@@ -7,7 +7,8 @@
 **4- Run `npm run test`**
 **5- Run `npm start` and used**
 **6- Verify `port` running for use in `clien-react` at App.js**
-**7- DATA_VAR in `.env` is for readis to change version of data or config**  
+**7- DATA_VAR in `.env` is for readis to change version of data or config**
+**8- Empty `REDIS_ENABLE`d in `.env` file if you don't want to use it**  
 
 **redis to flush with time**
 
