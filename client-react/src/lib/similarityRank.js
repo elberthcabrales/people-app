@@ -12,11 +12,11 @@ const distance = (s, e) => {
         const s_i = s.charAt(i - 1);
         for (let j = 1; j <= l_e; j++) {
             const e_j = e.charAt(j - 1);
-            const cost = (s_i === e_j) ? 0 : 1; //repalce cost
+            const cost = (s_i === e_j) ? 0 : 1;
 
-            const b = matrix[i][j - 1] + 1; //delete cost
-            const c = matrix[i - 1][j - 1] + cost; // cost replace
-            let mi = matrix[i - 1][j] + 1; // cost insert
+            const b = matrix[i][j - 1] + 1;
+            const c = matrix[i - 1][j - 1] + cost;
+            let mi = matrix[i - 1][j] + 1;
            
             if (b < mi) mi = b;
             if (c < mi) mi = c;
