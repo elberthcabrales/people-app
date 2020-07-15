@@ -49,10 +49,6 @@ describe('Person test Component', () => {
   it('Get Rank of similarity to show related emails', ()=>{
     const [steven] = peopleMock
     const result = similarityRank(steven.email,peopleMock.filter(i=>i.id!== steven.id))
-<<<<<<< HEAD
-=======
-    console.log(result)
->>>>>>> d006dc178ba5f9f829a9ad383f691004ee764afc
     expect(result.length).toBe(2)
   })
 })
