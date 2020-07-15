@@ -20,7 +20,7 @@ const distance = (s, e) => {
            
             if (b < mi) mi = b;
             if (c < mi) mi = c;
-            console.log(matrix)
+
             matrix[i][j] = mi;
         }
     }
