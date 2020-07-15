@@ -17,7 +17,7 @@ const distance = (s, e) => {
             const b = matrix[i][j - 1] + 1;
             const c = matrix[i - 1][j - 1] + cost;
             let mi = matrix[i - 1][j] + 1;
-           
+
             if (b < mi) mi = b;
             if (c < mi) mi = c;
 
